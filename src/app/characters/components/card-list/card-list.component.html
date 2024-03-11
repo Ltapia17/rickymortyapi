@@ -1,0 +1,44 @@
+
+
+<div *ngIf="characterListSearch.length > 0 "class="row">
+  <div *ngFor="let character of characterListSearch"  class="col-3">
+    <div class="card text-center bg-dark">
+      <img  [src]="character.image" class="card-img-top " alt="...">
+      <div class="card-body text-white">
+        <h5 class="card-title">{{character.name}}</h5>
+          <ul>
+            <li>Especie: {{character.species}}</li>
+            <li>Genero: {{character.gender}}</li>
+            <li>Origen: {{character.origin.name}} </li>
+          </ul>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+  <div *ngIf="characterListSearch.length < 1" class="row">
+    <div *ngFor="let character of charactersList"  class="col-3">
+      <div class="card bg-dark">
+        <img  [src]="character.image" class="card-img-top " [alt]="character.name">
+        <div class="card-body text-white">
+          <h5 class="card-title">{{character.name}}</h5>
+            <ul>
+              <li>Especie: {{character.species}}</li>
+              <li>Genero: {{character.gender}}</li>
+              <li>Origen: {{character.origin.name}} </li>
+            </ul>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+
+
+
+
