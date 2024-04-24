@@ -1,4 +1,4 @@
-import { Component, ElementRef, ViewChild } from '@angular/core';
+import { Component, ElementRef, EventEmitter, Output, ViewChild } from '@angular/core';
 import { CharacterService } from '../../services/character.service';
 import { Character } from '../../interfaces/character.interface';
 import { Observable } from 'rxjs';
@@ -14,18 +14,15 @@ export class SearchBoxComponent {
 
   @ViewChild('txtTag')
   public tagInput!: ElementRef<HTMLInputElement>;
-  public listCharacterSerch :Character[] = [];
 
 
-  searchTag():void{
+  @Output()
+  public onValue = new EventEmitter<string>();
 
 
+  searchTag(term:string):void{
 
-
-    const newTag = this.tagInput.nativeElement.value;
-
-    this.characterServices.searchCharacter(newTag);
-
+    this.onValue.emit(term);
     this.tagInput.nativeElement.value = '';
 
   }

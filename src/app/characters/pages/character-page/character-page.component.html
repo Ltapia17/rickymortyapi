@@ -1,0 +1,49 @@
+<div class="container">
+
+<ng-template #loading>
+  <div class="alert alert-info text-center">
+    Espere por favor...
+  </div>
+</ng-template>
+
+<div *ngIf="character;else loading" >
+  <div class="row">
+    <div class="col-12">
+      <h2><strong>{{character.name}}</strong></h2>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-4">
+      <h3></h3>
+      <img [src]="character.image" [alt]="character.name" class="img-thumbnail" >
+    </div>
+
+    <div class="col">
+      <ul class="list-group">
+        <li class="list-group-item">
+          <strong>Genero: </strong>{{character.gender}}
+        </li>
+        <li class="list-group-item">
+          <strong>Ubicacion: </strong>{{character.location.name}}
+        </li>
+        <li class="list-group-item">
+          <strong>Origen: </strong>{{character.origin.name}}
+        </li>
+        <li class="list-group-item">
+          <strong>Especie: </strong>{{character.species}}
+        </li>
+        <li class="list-group-item">
+          <strong>Estado: </strong>{{character.status}}
+        </li>
+        <li *ngIf="character.type"  class="list-group-item">
+          <strong>Tipo: </strong>{{character.type}}
+        </li>
+      </ul>
+    </div>
+
+  </div>
+
+</div>
+
+</div>

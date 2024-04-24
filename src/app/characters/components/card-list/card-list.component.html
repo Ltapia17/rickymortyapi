@@ -1,7 +1,34 @@
 
+<ng-template   #listCharacter>
+  <div class="row" >
+  <div *ngFor="let character of charactersList ;index as i" class="col-3">
+    <div  class="card-group">
+      <div  class="card bg-dark">
+        <img [src]="character.image" class="card-img-top " [alt]="character.name">
+        <div class="card-body text-white">
+          <h5 class="card-title">{{character.name}}</h5>
+          <ul class="list-group">
 
-<div *ngIf="characterListSearch.length > 0 "class="row">
-  <div *ngFor="let character of characterListSearch"  class="col-3">
+            <li>Especie: {{character.species}}</li>
+            <li>Genero: {{character.gender}}</li>
+            <li>Status: {{character.status}}</li>
+            <li><a [routerLink]="['/characters/',character.id]" class="text-white">Ver mas..</a></li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+    <br>
+  </div>
+
+</div>
+
+</ng-template>
+
+
+
+<div *ngIf="searchByCharacter.length > 0;else listCharacter" class="row">
+  <div *ngFor="let character of searchByCharacter ; let i = index "  class="col-3">
     <div class="card text-center bg-dark">
       <img  [src]="character.image" class="card-img-top " alt="...">
       <div class="card-body text-white">
@@ -9,30 +36,22 @@
           <ul>
             <li>Especie: {{character.species}}</li>
             <li>Genero: {{character.gender}}</li>
-            <li>Origen: {{character.origin.name}} </li>
+            <li>Status: {{character.status}}</li>
+            <li><a [routerLink]="['/characters/',character.id]" class="text-white">Ver mas..</a></li>
           </ul>
 
       </div>
     </div>
+    <br>
   </div>
+
 </div>
 
-  <div *ngIf="characterListSearch.length < 1" class="row">
-    <div *ngFor="let character of charactersList"  class="col-3">
-      <div class="card bg-dark">
-        <img  [src]="character.image" class="card-img-top " [alt]="character.name">
-        <div class="card-body text-white">
-          <h5 class="card-title">{{character.name}}</h5>
-            <ul>
-              <li>Especie: {{character.species}}</li>
-              <li>Genero: {{character.gender}}</li>
-              <li>Origen: {{character.origin.name}} </li>
-            </ul>
 
-        </div>
-      </div>
-    </div>
-  </div>
+
+
+
+
 
 
 

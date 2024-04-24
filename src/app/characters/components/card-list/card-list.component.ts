@@ -11,17 +11,25 @@ import { Observable } from 'rxjs';
 export class CardListComponent implements OnInit {
 
 
-  public charactersList:Character[] = [];
+  public charactersList?:Character[];
+
+
   @Input()
-  public characterListSearch:Character[]=[];
+  public characterList:Character[]=[];
+
+  @Input()
+  public searchByCharacter:Character[] =[];
 
 
   constructor(private characterServices: CharacterService){}
 
   ngOnInit(): void {
+
+    this.searchByCharacter = this.characterServices.cacheStore.character;
+
     this.characterServices.characterList()
     .subscribe(resp =>{
-      this.charactersList = resp.results;
+      this.charactersList = resp?.results;
     })
   }
 

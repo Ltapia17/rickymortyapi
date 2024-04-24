@@ -1,7 +1,7 @@
 <div class="container text-center">
 
-  <search-box> </search-box>
+  <search-box (onValue)="searchByCharacter($event)" > </search-box>
 
-  <card-list [characterListSearch]="searchCharacterList"  ></card-list>
+  <card-list [searchByCharacter]="characterListSearch"  [characterList]="characterList"  ></card-list>
 
 </div>

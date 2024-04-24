@@ -13,8 +13,23 @@ export class MainPageComponent {
   constructor(private characterServices: CharacterService){}
 
 
-   get searchCharacterList():Character[]{
+
+  public characterListSearch:Character[] = [];
+
+   get characterList():Character[]{
     return this.characterServices.characters;
+   }
+
+
+
+   searchByCharacter(term:string):void{
+      this.characterServices.searchByCharacter(term)
+      .subscribe(resp =>{
+        console.log(resp.results);
+        this.characterListSearch = resp.results;
+
+      });
+
    }
 
 }

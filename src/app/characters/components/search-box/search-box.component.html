@@ -4,7 +4,15 @@
       <div class="input-group-prepend">
         <span class="input-group-text" id="basic-addon1">Buscador:</span>
       </div>
-      <input (keyup.enter)="searchTag()" #txtTag type="text" class="form-control" placeholder="Ej: Morty" aria-label="Username" aria-describedby="basic-addon1">
+      <input
+        (keyup.enter)="searchTag(txtTag.value)"
+        #txtTag
+        type="text"
+        class="form-control"
+        placeholder="Ej: Morty"
+
+
+      />
     </div>
   </div>
 </div>
